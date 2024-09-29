@@ -1,0 +1,27 @@
+{
+  "name": "zarinpal-node-sdk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Armin Zahedi <Arminzahedi1999@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "axios-mock-adapter": "^2.0.0",
+    "graphql": "^16.9.0",
+    "msw": "^2.4.9"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/jest": "^29.5.13",
+    "@types/node": "^22.7.4",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
+  }
+}
