@@ -1,13 +1,14 @@
 {
   "name": "zarinpal-node-sdk",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Zarinpal SDK for node.js",
+  "main": "./dist/Zarinpal.js",
   "scripts": {
     "test": "jest"
   },
-  "keywords": [],
-  "author": "Armin Zahedi <Arminzahedi1999@gmail.com>",
+  "keywords": ["zarinpal", "nodejs", "node"],
+  "author": "Zarinpal <developers@zarinpal.com>",
+  "repository": "https://github.com/ZarinPal/ZarinPal-node-SDK",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.7.7",
