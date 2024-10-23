@@ -1,10 +1,11 @@
 .output
 .data
 .cache
-dist
+#dist
 
 # Node dependencies
 node_modules
+examples/node_modules/
 
 # Logs
 logs
