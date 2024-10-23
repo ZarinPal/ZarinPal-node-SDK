@@ -1,0 +1,20 @@
+{
+    "name": "example",
+    "type": "module",
+    "scripts": {
+        "payments": "tsx ./src/Payments.ts",
+        "verifications": "tsx ./src/Verifications.ts",
+        "transactions": "tsx ./src/Transactions.ts",
+        "reverses": "tsx ./src/Reverses.ts",
+        "refunds": "tsx ./src/Refunds.ts",
+        "unverified": "tsx ./src/Unverified.ts",
+        "inquiries": "tsx ./src/Inquiries.ts"
+    },
+    "peerDependencies": {
+        "zarinpal-node-sdk": "file:.."
+    },
+    "devDependencies": {
+        "ts-node": "^10.9.1",
+        "tsx": "^4.19.1"
+    }
+}
