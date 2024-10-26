@@ -7,6 +7,7 @@ import { Validator } from '../utils/Validator';
 export class Payments {
   private zarinpal: ZarinPal;
   private endpoint: string = '/pg/v4/payment/request.json';
+  private startPayUrl: string = '/pg/StartPay/';
 
   /**
    * Creates an instance of Payments.
@@ -53,5 +54,17 @@ export class Payments {
 
     // Make the API request
     return this.zarinpal.request('POST', this.endpoint, data);
+  }
+
+
+
+  /**
+   * Get the redirect URL for the payment.
+   * @param {string} authority - The authority code returned from create request.
+   * @returns {string} - The full redirect URL.
+   */
+  public getRedirectUrl(authority: string): string {
+    const baseUrl = this.zarinpal.getBaseUrl(); // Use getBaseUrl()
+    return `${baseUrl}${this.startPayUrl}${authority}`;
   }
 }

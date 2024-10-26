@@ -76,6 +76,13 @@ export class ZarinPal {
    */
   private graphqlClient: AxiosInstance;
 
+    /**
+   * The base URL used for API requests.
+   * @type {string}
+   * @private
+   */
+    private baseURL: string;
+
   /**
    * Creates an instance of ZarinPal.
    * @param {Config} config - The configuration object containing:
@@ -86,12 +93,12 @@ export class ZarinPal {
   constructor(config: Config) {
     this.config = config;
 
-    const baseURL = this.config.sandbox
+    this.baseURL = this.config.sandbox
       ? 'https://sandbox.zarinpal.com'
-      : 'https://api.zarinpal.com';
+      : 'https://payment.zarinpal.com';
 
     this.httpClient = axios.create({
-      baseURL: baseURL,
+      baseURL: this.baseURL,
       headers: {
         'User-Agent': 'ZarinPalSdk/v1 (Node.js)',
         'Content-Type': 'application/json',
@@ -160,5 +167,13 @@ export class ZarinPal {
     } catch (error: any) {
       throw error;
     }
+  }
+
+  /**
+   * Getter for baseURL.
+   * @returns {string} - The base URL used for API requests.
+   */
+  public getBaseUrl(): string {
+    return this.baseURL;
   }
 }

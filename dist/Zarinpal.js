@@ -70,11 +70,11 @@ var ZarinPal = /** @class */ (function () {
      */
     function ZarinPal(config) {
         this.config = config;
-        var baseURL = this.config.sandbox
+        this.baseURL = this.config.sandbox
             ? 'https://sandbox.zarinpal.com'
-            : 'https://api.zarinpal.com';
+            : 'https://payment.zarinpal.com';
         this.httpClient = axios_1["default"].create({
-            baseURL: baseURL,
+            baseURL: this.baseURL,
             headers: {
                 'User-Agent': 'ZarinPalSdk/v1 (Node.js)',
                 'Content-Type': 'application/json',
@@ -158,6 +158,13 @@ var ZarinPal = /** @class */ (function () {
                 }
             });
         });
+    };
+    /**
+     * Getter for baseURL.
+     * @returns {string} - The base URL used for API requests.
+     */
+    ZarinPal.prototype.getBaseUrl = function () {
+        return this.baseURL;
     };
     return ZarinPal;
 }());

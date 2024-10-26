@@ -48,6 +48,7 @@ var Payments = /** @class */ (function () {
      */
     function Payments(zarinpal) {
         this.endpoint = '/pg/v4/payment/request.json';
+        this.startPayUrl = '/pg/StartPay/';
         this.zarinpal = zarinpal;
     }
     /**
@@ -86,6 +87,15 @@ var Payments = /** @class */ (function () {
                 return [2 /*return*/, this.zarinpal.request('POST', this.endpoint, data)];
             });
         });
+    };
+    /**
+     * Get the redirect URL for the payment.
+     * @param {string} authority - The authority code returned from create request.
+     * @returns {string} - The full redirect URL.
+     */
+    Payments.prototype.getRedirectUrl = function (authority) {
+        var baseUrl = this.zarinpal.getBaseUrl(); // Use getBaseUrl()
+        return "".concat(baseUrl).concat(this.startPayUrl).concat(authority);
     };
     return Payments;
 }());
