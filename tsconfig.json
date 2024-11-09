@@ -8,7 +8,8 @@
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "declaration": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/*.spec.ts", "tests", "examples"]

@@ -3,11 +3,9 @@
   "version": "1.0.0",
   "description": "A Node.js SDK for ZarinPal payment services",
   "main": "./dist/index.js",
-  "module": "./dist/index.esm.js",
-  "types": "./dist/types/src/index.d.ts",
-  "type": "module",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "npx tsc ./src/index.ts --outDir ./dist",
+    "build": "npx tsc --declaration ./src/index.ts --outDir ./dist",
     "test": "jest",
     "prepublish": "npm run build"
   },
