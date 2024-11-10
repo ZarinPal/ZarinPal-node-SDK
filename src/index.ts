@@ -1,11 +1,5 @@
-export * from './Zarinpal';
-export * from './utils/Config';
-export * from './utils/Validator';
-export * from './errors/ResponseException';
-export * from './resources/Payments';
-export * from './resources/Refunds';
-export * from './resources/Transactions';
-export * from './resources/Verifications';
-export * from './resources//Reverses';
-export * from './resources/Unverified';
-export * from './resources/Inquiries';
+import {ZarinPal} from './Zarinpal';
+export default ZarinPal
+module.exports = ZarinPal;
+module.exports.ZarinPal = ZarinPal;
+module.exports.default = ZarinPal;

@@ -1,5 +1,5 @@
-import { ZarinPal } from 'zarinpal-node-sdk/src';
-
+import ZarinPal  from 'zarinpal-node-sdk';
+ //var ZarinPal = require('zarinpal-node-sdk')
 
 const zarinpal = new ZarinPal({
   merchantId: 'your-merchant-id',

@@ -1,4 +1,4 @@
-import { ZarinPal } from 'zarinpal-node-sdk/src';
+import ZarinPal from 'zarinpal-node-sdk/dist/index';
 
 const zarinpal = new ZarinPal({
   accessToken: 'your-access-token',
@@ -7,7 +7,6 @@ const zarinpal = new ZarinPal({
 
 async function getTransactions() {
   try {
-    
     const transactions = await zarinpal.transactions.list({
       terminalId: 'your-terminal-id',
       filter: 'PAID',
