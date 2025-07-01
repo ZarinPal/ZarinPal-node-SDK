@@ -1,5 +1,9 @@
 # ZarinPal Node.js SDK
 
+[![npm version](https://img.shields.io/npm/v/zarinpal-node-sdk.svg)](https://www.npmjs.com/package/zarinpal-node-sdk)
+
+Official npm package: [zarinpal-node-sdk on npm](https://www.npmjs.com/package/zarinpal-node-sdk)
+
 A modern Node.js SDK for integrating with the ZarinPal payment gateway. Easily create payment requests, verify transactions, calculate fees, handle refunds, and more with a simple and robust API.
 
 ## Features
@@ -10,9 +14,15 @@ A modern Node.js SDK for integrating with the ZarinPal payment gateway. Easily c
 - TypeScript support
 - Easy to use and extend
 
-## Installation & Usage
+## Installation
 
-For installation instructions, usage, and code examples, please refer to the official documentation:
+Install via npm:
+
+```bash
+npm install zarinpal-node-sdk
+```
+
+For more installation options and usage examples, see the official documentation:
 
 [ZarinPal Node.js SDK Documentation](https://www.zarinpal.com/docs/sdk/nodejs/installation.html)
 
