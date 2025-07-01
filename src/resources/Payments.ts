@@ -1,13 +1,13 @@
-import { ZarinPal } from '../Zarinpal';
-import { Validator } from '../utils/Validator';
+import { ZarinPal } from "../Zarinpal";
+import { Validator } from "../utils/Validator";
 
 /**
  * Class representing the Payments resource for creating payment requests.
  */
 export class Payments {
   private zarinpal: ZarinPal;
-  private endpoint: string = '/pg/v4/payment/request.json';
-  private startPayUrl: string = '/pg/StartPay/';
+  private endpoint: string = "/pg/v4/payment/request.json";
+  private startPayUrl: string = "/pg/StartPay/";
 
   /**
    * Creates an instance of Payments.
@@ -53,10 +53,32 @@ export class Payments {
     }
 
     // Make the API request
-    return this.zarinpal.request('POST', this.endpoint, data);
+    return this.zarinpal.request("POST", this.endpoint, data);
   }
 
-
+  /**
+   * Calculate the transaction fee before creating a payment request.
+   * @param {Object} data - The fee calculation request data.
+   * @param {string} data.merchant_id - Your merchant ID.
+   * @param {number} data.amount - The transaction amount (minimum 1000).
+   * @param {string} [data.currency] - The transaction currency (optional, default: IRR).
+   * @returns {Promise<any>} - The response from the API.
+   * @throws {Error} - Throws an error if validation fails or the API call fails.
+   */
+  public async feeCalculation(data: {
+    merchant_id: string;
+    amount: number;
+    currency?: string;
+  }): Promise<any> {
+    Validator.validateMerchantId(data.merchant_id);
+    Validator.validateAmount(data.amount);
+    Validator.validateCurrency(data.currency ?? null);
+    return this.zarinpal.request(
+      "POST",
+      "/pg/v4/payment/feeCalculation.json",
+      data
+    );
+  }
 
   /**
    * Get the redirect URL for the payment.
