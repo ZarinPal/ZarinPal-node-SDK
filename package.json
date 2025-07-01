@@ -1,6 +1,6 @@
 {
   "name": "zarinpal-node-sdk",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "A Node.js SDK for ZarinPal payment services",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
