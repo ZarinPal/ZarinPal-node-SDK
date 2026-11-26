@@ -1,5 +1,6 @@
 // tests/ZarinPalSDK.test.ts
 
+import PackagedZarinPal from "..";
 import { ZarinPal } from "../src/Zarinpal";
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
@@ -129,6 +130,11 @@ describe("ZarinPal SDK Tests", () => {
 
   // Payments - feeCalculation Tests
   describe("Payments - feeCalculation method", () => {
+    it("exposes feeCalculation through the package entry point", () => {
+      const sdk = new PackagedZarinPal({ sandbox: true });
+      expect(sdk.payments.feeCalculation).toEqual(expect.any(Function));
+    });
+
     it("should successfully calculate the transaction fee", async () => {
       const feeData = {
         merchant_id: "67887a6d-e2f8-4de2-86b1-8db27bc171b5",

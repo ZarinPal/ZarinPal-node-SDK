@@ -47,8 +47,8 @@ var Payments = /** @class */ (function () {
      * @param {ZarinPal} zarinpal - The ZarinPal instance.
      */
     function Payments(zarinpal) {
-        this.endpoint = '/pg/v4/payment/request.json';
-        this.startPayUrl = '/pg/StartPay/';
+        this.endpoint = "/pg/v4/payment/request.json";
+        this.startPayUrl = "/pg/StartPay/";
         this.zarinpal = zarinpal;
     }
     /**
@@ -84,7 +84,27 @@ var Payments = /** @class */ (function () {
                     Validator_1.Validator.validateCardPan((_c = data.cardPan) !== null && _c !== void 0 ? _c : null);
                 }
                 // Make the API request
-                return [2 /*return*/, this.zarinpal.request('POST', this.endpoint, data)];
+                return [2 /*return*/, this.zarinpal.request("POST", this.endpoint, data)];
+            });
+        });
+    };
+    /**
+     * Calculate the transaction fee before creating a payment request.
+     * @param {Object} data - The fee calculation request data.
+     * @param {string} data.merchant_id - Your merchant ID.
+     * @param {number} data.amount - The transaction amount (minimum 1000).
+     * @param {string} [data.currency] - The transaction currency (optional, default: IRR).
+     * @returns {Promise<any>} - The response from the API.
+     * @throws {Error} - Throws an error if validation fails or the API call fails.
+     */
+    Payments.prototype.feeCalculation = function (data) {
+        var _a;
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_b) {
+                Validator_1.Validator.validateMerchantId(data.merchant_id);
+                Validator_1.Validator.validateAmount(data.amount);
+                Validator_1.Validator.validateCurrency((_a = data.currency) !== null && _a !== void 0 ? _a : null);
+                return [2 /*return*/, this.zarinpal.request("POST", "/pg/v4/payment/feeCalculation.json", data)];
             });
         });
     };
