@@ -7,7 +7,7 @@
   "scripts": {
     "build": "npx tsc --declaration ./src/index.ts --outDir ./dist",
     "test": "jest",
-    "prepublish": "npm run build"
+    "prepare": "npm run build"
   },
   "dependencies": {
     "axios": "^1.7.7",

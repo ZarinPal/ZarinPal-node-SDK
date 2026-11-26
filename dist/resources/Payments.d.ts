@@ -1,4 +1,4 @@
-import { ZarinPal } from '../Zarinpal';
+import { ZarinPal } from "../Zarinpal";
 /**
  * Class representing the Payments resource for creating payment requests.
  */
@@ -32,6 +32,20 @@ export declare class Payments {
         email?: string;
         cardPan?: string | string[];
         referrer_id?: string;
+    }): Promise<any>;
+    /**
+     * Calculate the transaction fee before creating a payment request.
+     * @param {Object} data - The fee calculation request data.
+     * @param {string} data.merchant_id - Your merchant ID.
+     * @param {number} data.amount - The transaction amount (minimum 1000).
+     * @param {string} [data.currency] - The transaction currency (optional, default: IRR).
+     * @returns {Promise<any>} - The response from the API.
+     * @throws {Error} - Throws an error if validation fails or the API call fails.
+     */
+    feeCalculation(data: {
+        merchant_id: string;
+        amount: number;
+        currency?: string;
     }): Promise<any>;
     /**
      * Get the redirect URL for the payment.
